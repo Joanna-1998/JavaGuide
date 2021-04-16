@@ -272,7 +272,7 @@ Method add = clazz.getDeclaredMethod("add", Object.class);
 //但是通过反射添加，是可以的
 add.invoke(list, "kl");
 
-System.out.println(list)
+System.out.println(list);
 ```
 
 泛型一般有三种使用方式:泛型类、泛型接口、泛型方法。
@@ -381,8 +381,8 @@ public boolean equals(Object obj) {
 
 `equals()` 方法存在两种使用情况：
 
-- 情况 1：类没有覆盖 `equals()`方法。则通过`equals()`比较该类的两个对象时，等价于通过“==”比较这两个对象。使用的默认是 `Object`类`equals()`方法。
-- 情况 2：类覆盖了 `equals()`方法。一般，我们都覆盖 `equals()`方法来两个对象的内容相等；若它们的内容相等，则返回 true(即，认为这两个对象相等)。
+- **类没有覆盖 `equals()`方法** ：通过`equals()`比较该类的两个对象时，等价于通过“==”比较这两个对象，使用的默认是 `Object`类`equals()`方法。
+- **类覆盖了 `equals()`方法** ：一般我们都覆盖 `equals()`方法来比较两个对象中的属性是否相等；若它们的属性相等，则返回 true(即，认为这两个对象相等)。
 
 **举个例子：**
 
@@ -1295,7 +1295,7 @@ public class Test {
 #### 3.2.4. 使用 `try-with-resources` 来代替`try-catch-finally`
 
 1. **适用范围（资源的定义）：** 任何实现 `java.lang.AutoCloseable`或者 `java.io.Closeable` 的对象
-2. **关闭资源和 final 的执行顺序：** 在 `try-with-resources` 语句中，任何 catch 或 finally 块在声明的资源关闭后运行
+2. **关闭资源和 finally 块的执行顺序：** 在 `try-with-resources` 语句中，任何 catch 或 finally 块在声明的资源关闭后运行
 
 《Effecitve Java》中明确指出：
 
